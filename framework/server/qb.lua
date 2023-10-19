@@ -73,6 +73,13 @@ Framework.GetItemLabel = function(item)
     return QBCore.Shared.Items[item].label
 end
 
-Framework.CallCops = function()
+Framework.HasPlayerGroup = function(source, group)
+    return QBCore.Functions.HasPermission(source, group)
+end
 
+Framework.GetPlayerName = function(source)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return "NO_NAME" end
+
+    return Player.PlayerData.charinfo.firstname.." "..Player.PlayerData.charinfo.lastname
 end

@@ -72,6 +72,15 @@ Framework.RegisterUsableItem = function(item, cb)
     ESX.RegisterUsableItem(item, cb)
 end
 
-Framework.CallCops = function()
+Framework.HasPlayerGroup = function(source, group)
+    local Player = ESX.GetPlayerFromId(source)
+    if not Player then return false end
 
+    return group == Player.getGroup()
+end
+
+Framework.GetPlayerName = function(source)
+    local Player = ESX.GetPlayerFromId(source)
+    if not Player then return "NO_NAME" end
+    return Player.getName()
 end
